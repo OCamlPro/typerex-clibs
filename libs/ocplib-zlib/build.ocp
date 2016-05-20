@@ -1,0 +1,19 @@
+
+if has_zlib then {
+
+begin library "ocplib-zlib"
+   files = [ "zlib.ml"; "gzip.ml"; "zip.ml"; "zlibstubs.c" ]
+   cclib = [ "-lz" ]
+   requires = [ "unix" string_compat ]
+end
+}
+
+if has_bzlib then {
+
+begin library "ocplib-bz2"
+   files = [ "bz2.ml"; "c_bz.c" ]
+   cclib = [ "-lbz2" ]
+   requires = [ "unix" string_compat ]
+end
+
+}
