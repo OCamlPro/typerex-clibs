@@ -66,10 +66,10 @@ enum
  */
 typedef struct sha1_context
 {
-    uint32 Intermediate_Hash[SHA1HashSize/4]; /* Message Digest  */
+    uint32_t Intermediate_Hash[SHA1HashSize/4]; /* Message Digest  */
 
-    uint32 Length_Low;            /* Message length in bits      */
-    uint32 Length_High;           /* Message length in bits      */
+    uint32_t Length_Low;            /* Message length in bits      */
+    uint32_t Length_High;           /* Message length in bits      */
 
                                /* Index into message block array   */
     int Message_Block_Index;

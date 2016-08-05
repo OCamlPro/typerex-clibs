@@ -1,32 +1,23 @@
 
+#############################################################################
+#
+#          This file is managed by ocp-autoconf.
+#
+#  Remove it from `manage_files` in 'ocp-autoconf.config' if you want to
+#  modify it manually.
+#
+#############################################################################
+
 include autoconf/Makefile.config
 
-all:
-	ocp-build init
-	ocp-build
+all: ocp-build-build
 
-autoconf/configure: autoconf/configure.ac
-	cd autoconf; autoconf
+install: ocp-build-install
 
-autoconf/Makefile.config: autoconf/configure
-	./configure
+clean: ocp-build-clean
 
-install:
-	ocp-build install \
-		 -install-bin $(bindir) \
-		 -install-lib $(ocamldir) \
-		 -install-meta $(metadir) \
-		$(INSTALL_PACKAGES)
-
-clean:
-	ocp-build init
-	ocp-build clean
-
-distclean: clean
-	rm -rf _obuild
-	rm -f autoconf/Makefile.config
-	rm -f autoconf/config.ocpgen
-	rm -f autoconf/config.status
-	rm -f autoconf/config.log
-	rm -rf autoconf/autom4te.cache/
+distclean: clean ocp-distclean
 	find . -name '*~' -exec rm -f {} \;
+
+include autoconf/Makefile.rules
+

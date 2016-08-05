@@ -1,5 +1,3 @@
-has_zlib = true
-has_bzlib = true
 (**************************************************************************)
 (*                                                                        *)
 (*                              OCamlPro TypeRex                          *)
@@ -20,7 +18,13 @@ has_bzlib = true
 (*  SOFTWARE.                                                             *)
 (**************************************************************************)
 
-comp += [ "-bin-annot" ]
+if include "autoconf/config.ocpgen" then {} else {}
+
+if ocaml_version >= "4.00" then {
+  comp += [ "-bin-annot" ]
+}
+
+cflags = [ "-I" "autoconf" ]
 
 if ocaml_version = "4.01.0+ocp1" || ocaml_version = "4.02.1+ocp1" then {
   string_compat = [];

@@ -104,6 +104,6 @@ static int seek_command_table[] = {
 };
 */
 
-extern int64 os_getfilesize(char *path);
-extern int64 os_getfdsize(OS_FD fd);
+extern int64_t os_getfilesize(char *path);
+extern int64_t os_getfdsize(OS_FD fd);
 #endif

@@ -11,6 +11,12 @@
 /*                                                                            */
 /******************************************************************************/
 
+
+#include "ocaml-config.h"
+#if !defined(OCAML_USE_POSIX_TYPES)
+#define uint32_t uint32
+#endif
+
 /*
  *
  * This file comes from RFC 3174. Inclusion in gtk-gnutella is:
@@ -247,16 +253,16 @@ int sha1_hash(    SHA1_CTX    *context,
  */
 void SHA1ProcessMessageBlock(sha1_context *context)
 {
-    const uint32 K[] =    {       /* Constants defined in SHA-1   */
+    const uint32_t K[] =    {       /* Constants defined in SHA-1   */
                             0x5A827999,
                             0x6ED9EBA1,
                             0x8F1BBCDC,
                             0xCA62C1D6
                             };
     int           t;                 /* Loop counter                */
-    uint32      temp;              /* Temporary word value        */
-    uint32      W[80];             /* Word sequence               */
-    uint32      A, B, C, D, E;     /* Word buffers                */
+    uint32_t      temp;              /* Temporary word value        */
+    uint32_t      W[80];             /* Word sequence               */
+    uint32_t      A, B, C, D, E;     /* Word buffers                */
 
     /*
      *  Initialize the first 16 words in the array W

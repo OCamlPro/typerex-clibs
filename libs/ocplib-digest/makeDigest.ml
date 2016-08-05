@@ -76,7 +76,7 @@ end) = struct
 
   let file f =
     let ctx = context_create () in
-    File.X.iter (fun s pos len ->
+    File.iter_blocks (fun s pos len ->
       context_append ctx (Bytes.unsafe_to_string s) pos len
     ) f;
     context_finish ctx

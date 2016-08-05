@@ -1,0 +1,2 @@
+HAS_ZLIB=true
+HAS_BZLIB=true

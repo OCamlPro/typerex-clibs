@@ -1,4 +1,6 @@
-Makefile.config
-config.log
-config.ocpgen
-config.status
+/config.ocpgen
+/Makefile.config
+/autom4te.cache
+/config.status
+/config.log
+/ocaml-config.h
