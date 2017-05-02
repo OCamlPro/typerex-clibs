@@ -1,0 +1,5 @@
+remove: [
+  [ "ocp-build" "uninstall" "-install-lib" lib "ocplib-zlib" ]
+  [ "ocp-build" "uninstall" "-install-lib" lib "ocplib-digest" ]
+  [ "ocp-build" "uninstall" "-install-lib" lib "ocplib-bz2" ]
+]

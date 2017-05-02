@@ -121,12 +121,12 @@ AC_CHECK_OCAML_PKG(ocp-build)
 if test "$OCAML_PKG_ocp_build" = "no"; then
    AC_MSG_ERROR([Please install OCaml package 'ocp-build'.])
 fi
-  AX_COMPARE_VERSION( [$OCAML_PKG_ocp_build_VERSION], [lt], [1.99.17-beta],
-     AC_MSG_ERROR([Version 1.99.17-beta of ocp-build is needed]))
-OPAM_REPO=/home/lefessan/WindowsSharedFolder/opam-repository-with-archives
+  AX_COMPARE_VERSION( [$OCAML_PKG_ocp_build_VERSION], [lt], [1.99.19-beta],
+     AC_MSG_ERROR([Version 1.99.19-beta of ocp-build is needed]))
+OPAM_REPO=/home/lefessan/GIT/ocp-public/opam-repository
 OPAM_REPO_OFFICIAL_REMOTE=ocaml
 OPAM_REPO_FORK_REMOTE=origin
-DOWNLOAD_URL_PREFIX=http://github.com//archive/
+DOWNLOAD_URL_PREFIX=http://github.com/OCamlPro/typerex-clibs/archive/
 
 ###############################################################
 ##                                                            #
@@ -173,11 +173,11 @@ AC_SUBST(OCAMLBIN)
 AC_SUBST(OCAML_USE_BINANNOT)
 AC_SUBST(HAS_ZLIB)
 AC_SUBST(HAS_BZLIB)
-AC_CONFIG_FILES(Makefile.config config.ocpgen ocaml-config.h)
+AC_CONFIG_FILES(Makefile.config config.ocpgen config.ocp2gen ocaml-config.h)
 AC_OUTPUT
 
 echo
-echo "Summary:"
+echo "Summary for ${PACKAGE_NAME}.${PACKAGE_VERSION}:"
 echo "prefix=${prefix}"
 echo "exec_prefix=${exec_prefix}"
 echo "bindir=${bindir}"

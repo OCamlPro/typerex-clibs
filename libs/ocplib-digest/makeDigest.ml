@@ -76,7 +76,7 @@ end) = struct
 
   let file f =
     let ctx = context_create () in
-    File.iter_blocks (fun s pos len ->
+    FileGen.iter_blocks (fun s pos len ->
       context_append ctx (Bytes.unsafe_to_string s) pos len
     ) f;
     context_finish ctx
@@ -92,7 +92,7 @@ module type DigestSig = sig
   val direct_to_string : t -> string
   val direct_of_string : string -> t
   val string : string -> t
-  val file : File.t -> t
+  val file : FileGen.t -> t
 
   val null : t
   val of_hex : string -> t
